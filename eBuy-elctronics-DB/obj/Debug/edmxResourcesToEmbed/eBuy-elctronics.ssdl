@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Brand" EntityType="Model.Store.Brand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cart" EntityType="Model.Store.Cart" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="Model.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CraditCards" EntityType="Model.Store.CraditCards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeedbackDesc" EntityType="Model.Store.FeedbackDesc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inventory" EntityType="Model.Store.Inventory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InventoryAudit" EntityType="Model.Store.InventoryAudit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Item" EntityType="Model.Store.Item" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemOrder" EntityType="Model.Store.ItemOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Loginaudit" EntityType="Model.Store.Loginaudit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logindetails" EntityType="Model.Store.Logindetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Loginprofile" EntityType="Model.Store.Loginprofile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Query" EntityType="Model.Store.Query" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Questionbase" EntityType="Model.Store.Questionbase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Solution" EntityType="Model.Store.Solution" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TotalOrders" EntityType="Model.Store.TotalOrders" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_FeedbackDesc_Logindetails" Association="Model.Store.FK_FeedbackDesc_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="FeedbackDesc" EntitySet="FeedbackDesc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Brand" Association="Model.Store.FK_Inventory_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Category" Association="Model.Store.FK_Inventory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Item" Association="Model.Store.FK_Inventory_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryAudit_Brand" Association="Model.Store.FK_InventoryAudit_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="InventoryAudit" EntitySet="InventoryAudit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryAudit_Category" Association="Model.Store.FK_InventoryAudit_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="InventoryAudit" EntitySet="InventoryAudit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryAudit_Item" Association="Model.Store.FK_InventoryAudit_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="InventoryAudit" EntitySet="InventoryAudit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_Brand" Association="Model.Store.FK_ItemOrder_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="ItemOrder" EntitySet="ItemOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_Category" Association="Model.Store.FK_ItemOrder_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ItemOrder" EntitySet="ItemOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_Item" Association="Model.Store.FK_ItemOrder_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ItemOrder" EntitySet="ItemOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loginaudit_Logindetails" Association="Model.Store.FK_Loginaudit_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Loginaudit" EntitySet="Loginaudit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loginprofile_Logindetails" Association="Model.Store.FK_Loginprofile_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Loginprofile" EntitySet="Loginprofile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Query_Logindetails1" Association="Model.Store.FK_Query_Logindetails1">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Query" EntitySet="Query" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questionbase_Logindetails" Association="Model.Store.FK_Questionbase_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Questionbase" EntitySet="Questionbase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solution_Query" Association="Model.Store.FK_Solution_Query">
+      <End Role="Query" EntitySet="Query" />
+      <End Role="Solution" EntitySet="Solution" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="225" />
+    <Property Name="BrandDesc" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="BrandImgUrl" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ItemOrderId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="225" />
+    <Property Name="CategoryDesc" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CategoryImgUrl" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CraditCards">
+    <Key>
+      <PropertyRef Name="CraditCardsID" />
+    </Key>
+    <Property Name="CraditCardsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="int" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="CcNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="CName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cvv" Type="int" />
+    <Property Name="Exp" Type="nvarchar" MaxLength="50" />
+    <Property Name="Street" Type="nvarchar" MaxLength="500" />
+    <Property Name="CityID" Type="nvarchar" MaxLength="50" />
+    <Property Name="StateID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Zipcode" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FeedbackDesc">
+    <Key>
+      <PropertyRef Name="Feedbackid" />
+    </Key>
+    <Property Name="Feedbackid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="int" />
+    <Property Name="Brandid" Type="int" />
+    <Property Name="Categoryid" Type="int" />
+    <Property Name="Itemid" Type="int" />
+    <Property Name="Feedbackdesc" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="InventoryID" />
+    </Key>
+    <Property Name="InventoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="InventoryAudit">
+    <Key>
+      <PropertyRef Name="InventoryAuditID" />
+    </Key>
+    <Property Name="InventoryAuditID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="AuditType" Type="int" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="225" />
+    <Property Name="ItemDesc" Type="nvarchar" MaxLength="225" />
+    <Property Name="ImageURL" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ItemOrder">
+    <Key>
+      <PropertyRef Name="ItemOrderID" />
+    </Key>
+    <Property Name="ItemOrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Loginaudit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Loginid" Type="int" />
+    <Property Name="Logindate" Type="datetime" />
+    <Property Name="Logindesc" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="Logindetails">
+    <Key>
+      <PropertyRef Name="Loginid" />
+    </Key>
+    <Property Name="Loginid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Loginname" Type="nvarchar" MaxLength="225" />
+    <Property Name="Password" Type="nvarchar" MaxLength="225" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="225" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="225" />
+    <Property Name="Logintype" Type="nvarchar" MaxLength="225" />
+    <Property Name="Squestionid" Type="int" />
+    <Property Name="Sanswer" Type="nvarchar" MaxLength="225" />
+    <Property Name="Firstlogin" Type="int" />
+    <Property Name="Passmodifieddate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Loginprofile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginId" Type="int" />
+    <Property Name="Birthdate" Type="datetime" />
+    <Property Name="Hno" Type="nvarchar" MaxLength="225" />
+    <Property Name="Street" Type="nvarchar" MaxLength="225" />
+    <Property Name="City" Type="nvarchar" MaxLength="225" />
+    <Property Name="State" Type="nvarchar" MaxLength="225" />
+    <Property Name="Country" Type="nvarchar" MaxLength="225" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="225" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="225" />
+    <Property Name="Email" Type="nvarchar" MaxLength="225" />
+    <Property Name="Locale" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Query">
+    <Key>
+      <PropertyRef Name="QueryID" />
+    </Key>
+    <Property Name="QueryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LogiID" Type="int" />
+    <Property Name="QueryDate" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="225" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Questionbase">
+    <Key>
+      <PropertyRef Name="Questionid" />
+    </Key>
+    <Property Name="Questionid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="int" />
+    <Property Name="Questiondetail" Type="nvarchar" MaxLength="225" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="SolutionID" />
+    </Key>
+    <Property Name="SolutionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="QueryId" Type="int" />
+    <Property Name="SolvedDate" Type="datetime" />
+    <Property Name="Solution" Type="nvarchar" MaxLength="225" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="TotalOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="int" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="TotalAmount" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ItemOrderId" Type="int" />
+  </EntityType>
+  <Association Name="FK_FeedbackDesc_Logindetails">
+    <End Role="Logindetails" Type="Model.Store.Logindetails" Multiplicity="0..1" />
+    <End Role="FeedbackDesc" Type="Model.Store.FeedbackDesc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="FeedbackDesc">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Brand">
+    <End Role="Brand" Type="Model.Store.Brand" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Model.Store.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Category">
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Model.Store.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Item">
+    <End Role="Item" Type="Model.Store.Item" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Model.Store.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryAudit_Brand">
+    <End Role="Brand" Type="Model.Store.Brand" Multiplicity="0..1" />
+    <End Role="InventoryAudit" Type="Model.Store.InventoryAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="InventoryAudit">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryAudit_Category">
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="0..1" />
+    <End Role="InventoryAudit" Type="Model.Store.InventoryAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="InventoryAudit">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryAudit_Item">
+    <End Role="Item" Type="Model.Store.Item" Multiplicity="0..1" />
+    <End Role="InventoryAudit" Type="Model.Store.InventoryAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="InventoryAudit">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_Brand">
+    <End Role="Brand" Type="Model.Store.Brand" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.Store.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_Category">
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.Store.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_Item">
+    <End Role="Item" Type="Model.Store.Item" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.Store.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loginaudit_Logindetails">
+    <End Role="Logindetails" Type="Model.Store.Logindetails" Multiplicity="0..1" />
+    <End Role="Loginaudit" Type="Model.Store.Loginaudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Loginaudit">
+        <PropertyRef Name="Loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loginprofile_Logindetails">
+    <End Role="Logindetails" Type="Model.Store.Logindetails" Multiplicity="0..1" />
+    <End Role="Loginprofile" Type="Model.Store.Loginprofile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Loginprofile">
+        <PropertyRef Name="LoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Query_Logindetails1">
+    <End Role="Logindetails" Type="Model.Store.Logindetails" Multiplicity="0..1" />
+    <End Role="Query" Type="Model.Store.Query" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Query">
+        <PropertyRef Name="LogiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questionbase_Logindetails">
+    <End Role="Logindetails" Type="Model.Store.Logindetails" Multiplicity="0..1" />
+    <End Role="Questionbase" Type="Model.Store.Questionbase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Questionbase">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solution_Query">
+    <End Role="Query" Type="Model.Store.Query" Multiplicity="0..1" />
+    <End Role="Solution" Type="Model.Store.Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Query">
+        <PropertyRef Name="QueryID" />
+      </Principal>
+      <Dependent Role="Solution">
+        <PropertyRef Name="QueryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_Get_AllCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Get_AllFeedback" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Get_AllOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Get_Items" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Save_Orders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderItemId" Type="int" Mode="In" />
+    <Parameter Name="OrderQuantity" Type="int" Mode="In" />
+    <Parameter Name="LoginId" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="CcNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Cvv" Type="int" Mode="In" />
+    <Parameter Name="Exp" Type="nvarchar" Mode="In" />
+    <Parameter Name="Street" Type="nvarchar" Mode="In" />
+    <Parameter Name="CityID" Type="nvarchar" Mode="In" />
+    <Parameter Name="StateID" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryID" Type="nvarchar" Mode="In" />
+    <Parameter Name="Zipcode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SaveCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ItemOrder" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+    <Parameter Name="LoginId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SaveItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandId" Type="int" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="ItemName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemDesc" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ItemImageURL" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ItemPrice" Type="int" Mode="In" />
+    <Parameter Name="ItemQuantity" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="ItemsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SaveRegstration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Birthdate" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hno" Type="nvarchar" Mode="In" />
+    <Parameter Name="Street" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="State" Type="nvarchar" Mode="In" />
+    <Parameter Name="Country" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pincode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Loginname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Squestionid" Type="nvarchar" Mode="In" />
+    <Parameter Name="Sanswer" Type="nvarchar" Mode="In" />
+  </Function>
+</Schema>

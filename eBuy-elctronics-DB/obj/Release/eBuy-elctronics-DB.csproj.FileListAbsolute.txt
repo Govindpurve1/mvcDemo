@@ -1,0 +1,32 @@
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll.config
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.pdb
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.dll
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.xml
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.csprojResolveAssemblyReference.cache
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.dll
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.pdb
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll.config
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.pdb
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.dll
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.xml
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.csprojResolveAssemblyReference.cache
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.dll
+E:\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.pdb
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll.config
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.pdb
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.dll
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.xml
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.csprojResolveAssemblyReference.cache
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.dll
+E:\mvc\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.pdb
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll.config
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.dll
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\eBuy-elctronics-DB.pdb
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.dll
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\bin\Release\EntityFramework.xml
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.csprojResolveAssemblyReference.cache
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.dll
+F:\Rakesh Singh\GST Technologies\eBuy-elctronics\eBuy-elctronics-DB\obj\Release\eBuy-elctronics-DB.pdb

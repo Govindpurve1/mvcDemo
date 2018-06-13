@@ -1,0 +1,39 @@
+﻿@model IEnumerable<eBuy_elctronics_DB.Brand>
+@{
+    ViewBag.Title = "eBuy Brands";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            <small>eBuy electronics</small>
+                        </h1>
+                    </div>
+                </div>
+
+                @foreach (var item in Model)
+                {                 
+
+                    <div class="col-md-3 portfolio-item">
+                        <a href="@Url.Action("BrandItems", "Brands", new { Id = item.BrandID })">
+                            @if (item.BrandImgUrl == null || item.BrandImgUrl == "")
+                            {
+                                item.BrandImgUrl = "no_image.jpg";
+                            }
+                            <img class="img-responsive" src="@Url.Content("~/images/BrandLogos/" + item.BrandImgUrl)" style="width:300px; height:200px;">
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Core Scripts - Include with every page -->
+    <script src="@Url.Content("~/Content/bootstrap/js/jquery-1.10.2.js")"></script>

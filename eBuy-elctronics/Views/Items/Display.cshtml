@@ -1,0 +1,113 @@
+﻿@model eBuy_elctronics_DB.cGet_Items
+@{
+    ViewBag.Title = "eBuy Display";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            <small>eBuy electronics</small>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            @Html.ActionLink("Back to Items", "Index", "Items")
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    @using (Html.BeginForm("Index", "CardDetails", FormMethod.Post, new { }))
+                                    {
+                                        <div class="form-group">
+                                            <label>Product Name :<b>@Model.ItemName</b></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>
+                                                <img class="img-responsive" src="@Url.Content("~/images/Items/" + Model.ImageURL)"></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Product Description :<b>@Model.ItemDesc</b></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Product Price :<b>@Model.Price</b></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Product Quantity :</label>
+                                            <input type="text" name="Quantity" id="ChkQuantity" />
+                                            <p class="CheckQuantity"></p>
+                                            <input type="hidden" name="ItemID" id="ItemId_" value="@Model.ItemID"/>
+                                            <input type="hidden" id="InventryI_" value="@Model.InventoryID" />
+                                        </div>
+                                        <div class="form-group">
+
+                                            <input type="submit" id="ClicktoBuyOrder" class="btn btn-success" value="Click to Buy" />
+                                            @*<a href="@Url.Action("AddOrder", "Order", new {id=Model.ItemID,Qunty=Model.Quantity })" class="btn btn-success" >Click to Buy</a>*@
+                                            <a href="@Url.Action("AddCart", "Order", new { id = Model.ItemID })" class="btn btn-default" >Add to Cart</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/jquery-1.7.1.js")"></script>
+<script>
+    $(document).ready(function () {
+        var SelectItemId = "";
+        var Quantity = "";
+        var InventoryId = "";
+        // Click on Order to check the Quantity 
+        $("#ClicktoBuyOrder").click(function () {
+            CkeckQuantity();
+
+        });
+
+        // Change on Quantity to check the Quantity 
+        $("#ChkQuantity").change(function () {
+           SelectItemId = $("#ItemId_").val();
+            Quantity = $("#ChkQuantity").val();
+            InventoryId = $("#InventryI_").val();
+
+            if (SelectItemId != '') {
+                CkeckQuantity();
+            }
+        });      
+
+        // Check Quantity with function
+        function CkeckQuantity() {
+            $.post('@Url.Action("CheckQuantity","Items")',
+                    {
+                        ItemId: SelectItemId,
+                        Quantity: Quantity,
+                        InventoryId: InventoryId
+                    },
+                function (data, status) {
+                    // alert("Data: " + data + "\nStatus: " + status);
+                    $(".CheckQuantity").text('');
+                    if (data == 1)
+                    { }
+                    else if (data == 0)
+                    { $(".CheckQuantity").text('requested quantity is not available.'); }
+                    else if (data == 404)
+                    { window.location = '@Url.Action("Error")'; }
+
+                });
+    }
+    });
+   
+</script>

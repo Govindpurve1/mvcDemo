@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+@using eBuy_elctronics_DB;
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.title</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap/font-awesome/css/font-awesome.css")" rel="stylesheet">
+
+    <!-- Page-Level Plugin CSS - Tables -->
+    <link href="@Url.Content("~/Content/bootstrap/css/plugins/dataTables/dataTables.bootstrap.css")" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="@Url.Content("~/Content/bootstrap/css/sb-admin.css")" rel="stylesheet">
+  
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">eBuy electronics</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+              
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                       @* <li><a href="@Url.Action("Index", "MyProfile")"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>*@
+                        <li><a href="@Url.Action("Index", "ChangePassword")"><i class="fa fa-gear fa-fw"></i>Change Password</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("LogOff", "Login")"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+        </nav>
+        <!-- /.navbar-static-top -->
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li>
+                        <a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Products<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index", "Brands")">Brands</a>                               
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Categories")">Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Items")">Items</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Buy<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index", "Search")">Search</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i>Queries<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index","Queries")">View Reponse</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("CreateQuery","Queries")">Send Query</a>
+                            </li>
+
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Cart")"><i class="fa fa-table fa-fw"></i>View Cart</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Orders<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index", "Order")">All orders</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "OrdersByDate")">View by date</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                        
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "FeedBack")"><i class="fa fa-edit fa-fw"></i>FeedBack</a>
+                    </li>
+                </ul>
+                <!-- /#side-menu -->
+            </div>
+
+            <!-- /.sidebar-collapse -->
+        </nav>
+
+        <!-- /.navbar-static-side -->
+        @RenderBody()
+    </div>
+    <!-- /#page-wrapper -->
+
+   
+     <!-- Page-Level Plugin Scripts - Tables -->
+    <script src="@Url.Content("~/Content/bootstrap/js/plugins/dataTables/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/plugins/dataTables/dataTables.bootstrap.js")"></script>
+
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/plugins/metisMenu/jquery.metisMenu.js")"></script>
+
+   
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="@Url.Content("~/Content/bootstrap/js/sb-admin.js")"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+            $('#dataTables-example1').dataTable();
+        });
+    </script>
+    <style>
+        form label.error {
+        font: 10px Tahoma,sans-serif;
+        color: #ED7476;
+        margin-left: 5px;
+    }
+
+    form input.error, form input.error:hover, form input.error:focus, form select.error,
+    form textarea.error {
+        border: 1px solid #ED7476;
+        background: #FFEDED;
+    }
+    </style>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<eBuy_elctronics_DB.FeedbackDesc>
+@{
+    ViewBag.Title = "eBuy Feedback";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+   // Layout = null;
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Create-FeedBack</h1>
+            <span class="text-success">@ViewBag.sucMsg</span>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    @Html.ActionLink("Back to Home", "Index", "Home")
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        
+                        <div class="col-lg-6">
+                            
+                            @using (Html.BeginForm("Create", "FeedBack", FormMethod.Post, new {id = "feedbackvalid" }))
+                            {
+                                
+                                <div class="form-group">
+                                    <label>Brand</label>
+                                    @Html.DropDownList("BrandId", @ViewBag.BrandId as SelectList,"--Select Brand--", new {@class="form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                     @Html.DropDownList("CategoryId", @ViewBag.CategoryId as SelectList,"--Select Category--", new {@class="form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Item</label>
+                                     @Html.DropDownList("ItemId", @ViewBag.ItemId as SelectList,"--Select Item--", new {@class="form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>FeedBack Description</label>
+                                    <textarea class="form-control" placeholder="Enter item description" cols="2" name="Feedbackdesc1"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input name="Input" type="submit" value="Submit" class="btn btn-success" />
+                                    <input name="Input" type="reset" value="Reset" class="btn btn-default" />
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/jquery-1.7.1.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery-form-validation-V.1.js")"></script>

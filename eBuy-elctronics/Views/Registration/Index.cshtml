@@ -1,0 +1,181 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>eBuy-Registration</title>
+
+    <!-- Core CSS - Include with every page -->
+
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/Content/bootstrap/font-awesome/css/font-awesome.css")" rel="stylesheet" />
+
+    <!-- Page-Level Plugin CSS - Forms -->
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="@Url.Content("~/Content/bootstrap/css/sb-admin.css")" rel="stylesheet" />
+
+    <script type="text/javascript" src="@Url.Content("~/scripts/general.js")"> </script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/ts_picker.js")"> </script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="@Url.Action("Index", "Login")">eBuy electronics</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="@Url.Action("Index", "Login")">Sign In</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Registration")" class="btn btn-success btn-xs">New User - Sign Up for eBuy</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Registration form -eBuy</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form id="ValidateRegistration" action="@Url.Action("Create", "Registration")" method="post" name="register" onsubmit="return validate()" role="form">
+
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="First Name" type="text" name="Firstname" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Last Name" type="text" name="Lastname" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <p>
+                                        <input class="form-control" placeholder="Birth Date" type="text" name="Birthdate" autofocus readonly="readonly"><a href="javascript:show_calendar('document.register.Birthdate', document.register.Birthdate.value);" class="fa fa-calendar">
+                                            </a>
+                                    </p>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Apt No#" type="text" name="Hno" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Street Name..." type="text" name="Street" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Enter City..." type="text" name="City" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label>State</label>
+                                    <select class="form-control" name="State">
+
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>IOWA</option>
+                                        <option>New York</option>
+                                        <option>Missouri</option>
+                                        <option>Mississippi</option>
+                                        <option>Arkansas</option>
+                                        <option>Alabama</option>
+                                        <option>California</option>
+                                        <option>Utah</option>
+                                        <option>Washington</option>
+                                        <option>Delaware</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <select class="form-control" name="Country">
+                                        <option>United States</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Zipcode" type="text" name="Pincode" autofocus>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Mobile Number" type="text" name="ContactNo" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" type="email" autofocus name="Email">
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" type="text" name="Loginname" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="Password" type="password" id="Password" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label>Security Question</label>
+                                    <select class="form-control" name="Squestionid">
+                                        <option value="1">What is your favorite pastime?</option>
+                                        <option value="2">Who your childhood hero?</option>
+                                        <option value="3">What is the name of your first school?</option>
+                                        <option value="4">Where did you meet your spouse?</option>
+                                        <option value="5">What is your favorite sports team?</option>
+                                        <option value="6">What is your father's middle name?</option>
+                                        <option value="7">What was your high school mascot?</option>
+                                        <option value="8">What make was your first car or bike?</option>
+                                        <option value="9">What is your pet's name?</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Answer" name="Sanswer" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input name="Input" type="submit" value="Register" class="btn btn-success" />
+                                    <a href="@Url.Action("Index", "Login")" class="btn btn-primary">Already Member- Sign In</a>
+                                </div>
+
+
+
+                            </form>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-form-validation-V.1.js")"></script>
+</body>
+</html>
+<style>
+        form label.error {
+        font: 10px Tahoma,sans-serif;
+        color: #ED7476;
+        margin-left: 5px;
+    }
+
+    form input.error, form input.error:hover, form input.error:focus, form select.error,
+    form textarea.error {
+        border: 1px solid #ED7476;
+        background: #FFEDED;
+    }
+    </style>

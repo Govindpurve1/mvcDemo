@@ -1,0 +1,86 @@
+﻿@model IEnumerable<eBuy_elctronics_DB.TotalOrder>
+@{
+    ViewBag.Title = "Order by Date";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="page-header">View Your Orders By Date</h1>
+            <p>@ViewBag.sucMsg</p>
+            @*<form name="bydate" method="post" action="ViewOrdersByDate.jsp">
+                <div align="center">
+                    <strong>Ordered Date</strong>
+                    <input type="date" name="orderdate" />
+                    <input type="submit" value="get Details" class="btn btn-primary" />
+                </div>
+                </form><br />*@
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    These are the available Orders By Date at eBuy
+                </div>
+                <!-- /.panel-heading -->
+
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Order Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 @{
+                                    string _class = string.Empty;
+                                    int _cout = 0;
+                                    if (Model != null)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            if (_cout == 0)
+                                            {
+                                                _cout = 1;
+                                                _class = "odd gradeA";
+                                            }
+                                            if (_cout == 1)
+                                            {
+                                                _cout = 0;
+                                                _class = "even gradeA";
+                                            }   
+                                <tr class="@_class">
+                                    <td><a href="#" class="btn btn-outline btn-warning btn-xs">Feedback: Order @item.ItemOrderId</a></td>
+                                    <td>@item.OrderDate.Value.ToShortDateString()</td>
+                                    <td>@item.TotalAmount</td>
+                                    @if(item.IsActive==true){
+                                    <td class="btn btn-outline btn-success btn-xs" >Active</td>}else{<td class="btn btn-outline btn-warning btn-xs">Status</td>}
+                                </tr>
+                                        }
+                                    }}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+ <!-- Core Scripts - Include with every page -->
+    <script src="@Url.Content("~/Content/bootstrap/js/jquery-1.10.2.js")"></script>
+<script  src="@Url.Content("~/scripts/general.js")"></script>
+<script  src="@Url.Content("~/scripts/ts_picker.js")"></script>

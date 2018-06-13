@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5417aa8e8bf14ea6881009e00cf5a20d" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="Model.Brand" Width="1.5" PointX="7.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="9.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FeedbackDesc" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Inventory" Width="1.5" PointX="11.625" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.InventoryAudit" Width="1.5" PointX="14" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Item" Width="1.5" PointX="16" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ItemOrder" Width="1.5" PointX="11.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Loginaudit" Width="1.5" PointX="3.625" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Logindetail" Width="1.5" PointX="0.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Loginprofile" Width="1.5" PointX="5.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Query" Width="1.5" PointX="4" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Questionbase" Width="1.5" PointX="6.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Solution" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TotalOrder" Width="1.5" PointX="14" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Inventory_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_InventoryAudit_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ItemOrder_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Inventory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_InventoryAudit_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ItemOrder_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_FeedbackDesc_Logindetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Inventory_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_InventoryAudit_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ItemOrder_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ItemOrder_TotalOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Loginaudit_Logindetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Loginprofile_Logindetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Query_Logindetails1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Questionbase_Logindetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Solution_Query" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Cart" Width="1.5" PointX="18.625" PointY="5.125" />
+        <EntityTypeShape EntityType="Model.CraditCard" Width="1.5" PointX="18.625" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,78 @@
+﻿@model eBuy_elctronics.Models.Items
+@{
+    ViewBag.Title = "Create item";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Create-Category</h1>
+            <span>@ViewBag.sucMsg</span>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    @Html.ActionLink("Back to Items", "Index", "cmsItems")
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        
+                        <div class="col-lg-6">
+                            
+                            @using (Html.BeginForm("Create", "cmsItems", FormMethod.Post, new { enctype = "multipart/form-data", id = "CreateItemsformValidation" }))
+                            {
+                                
+                                <div class="form-group">
+                                    <label>Item Brand</label>
+                                    @Html.DropDownList("BrandId", @ViewBag.BrandId as SelectList,"--Select Brand--", new {@class="form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Item Category</label>
+                                     @Html.DropDownList("CategoryId", @ViewBag.CategoryId as SelectList,"--Select Category--", new {@class="form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Item Name</label>
+                                    <input class="form-control" placeholder="Enter item name" type="text" name="ItemName" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Item Description</label>
+                                    <input class="form-control" placeholder="Enter item description" type="text" name="ItemDesc" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Upload Image</label>
+                                    <input type="file" name="file" id="">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Item Quantity</label>
+                                    <input class="form-control" placeholder="Enter item quantity" type="text" name="ItemQuantity" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Item Price</label>
+                                    <input class="form-control" placeholder="Enter item price" type="text" name="ItemPrice" />
+                                </div>
+                                <div class="form-group">
+                                    <input name="Input" type="submit" value="Submit" class="btn btn-success" />
+                                    <input name="Input" type="reset" value="Reset" class="btn btn-default" />
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/jquery-1.7.1.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery-form-validation-V.1.js")"></script>

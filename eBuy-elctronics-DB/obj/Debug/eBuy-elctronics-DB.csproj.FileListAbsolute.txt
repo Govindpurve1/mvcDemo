@@ -1,0 +1,8 @@
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Debug\eBuy-elctronics-DB.dll.config
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Debug\eBuy-elctronics-DB.dll
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Debug\eBuy-elctronics-DB.pdb
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Debug\EntityFramework.dll
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\bin\Debug\EntityFramework.xml
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\obj\Debug\eBuy-elctronics-DB.dll
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\obj\Debug\eBuy-elctronics-DB.pdb
+C:\MS Dot Net Projects\Live Projects\eBuy-elctronics\eBuy-elctronics-DB\obj\Debug\eBuy-elctronics-DB.csprojResolveAssemblyReference.cache

@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Brands" EntityType="Model.Brand" />
+    <EntitySet Name="Categories" EntityType="Model.Category" />
+    <EntitySet Name="FeedbackDescs" EntityType="Model.FeedbackDesc" />
+    <EntitySet Name="Inventories" EntityType="Model.Inventory" />
+    <EntitySet Name="InventoryAudits" EntityType="Model.InventoryAudit" />
+    <EntitySet Name="Items" EntityType="Model.Item" />
+    <EntitySet Name="ItemOrders" EntityType="Model.ItemOrder" />
+    <EntitySet Name="Loginaudits" EntityType="Model.Loginaudit" />
+    <EntitySet Name="Logindetails" EntityType="Model.Logindetail" />
+    <EntitySet Name="Loginprofiles" EntityType="Model.Loginprofile" />
+    <EntitySet Name="Queries" EntityType="Model.Query" />
+    <EntitySet Name="Questionbases" EntityType="Model.Questionbase" />
+    <EntitySet Name="Solutions" EntityType="Model.Solution" />
+    <EntitySet Name="TotalOrders" EntityType="Model.TotalOrder" />
+    <AssociationSet Name="FK_Inventory_Brand" Association="Model.FK_Inventory_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryAudit_Brand" Association="Model.FK_InventoryAudit_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="InventoryAudit" EntitySet="InventoryAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_Brand" Association="Model.FK_ItemOrder_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="ItemOrder" EntitySet="ItemOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Category" Association="Model.FK_Inventory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryAudit_Category" Association="Model.FK_InventoryAudit_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="InventoryAudit" EntitySet="InventoryAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_Category" Association="Model.FK_ItemOrder_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="ItemOrder" EntitySet="ItemOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbackDesc_Logindetails" Association="Model.FK_FeedbackDesc_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="FeedbackDesc" EntitySet="FeedbackDescs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Item" Association="Model.FK_Inventory_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryAudit_Item" Association="Model.FK_InventoryAudit_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="InventoryAudit" EntitySet="InventoryAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_Item" Association="Model.FK_ItemOrder_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ItemOrder" EntitySet="ItemOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOrder_TotalOrders" Association="Model.FK_ItemOrder_TotalOrders">
+      <End Role="TotalOrders" EntitySet="TotalOrders" />
+      <End Role="ItemOrder" EntitySet="ItemOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loginaudit_Logindetails" Association="Model.FK_Loginaudit_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Loginaudit" EntitySet="Loginaudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loginprofile_Logindetails" Association="Model.FK_Loginprofile_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Loginprofile" EntitySet="Loginprofiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Query_Logindetails1" Association="Model.FK_Query_Logindetails1">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Query" EntitySet="Queries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questionbase_Logindetails" Association="Model.FK_Questionbase_Logindetails">
+      <End Role="Logindetails" EntitySet="Logindetails" />
+      <End Role="Questionbase" EntitySet="Questionbases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solution_Query" Association="Model.FK_Solution_Query">
+      <End Role="Query" EntitySet="Queries" />
+      <End Role="Solution" EntitySet="Solutions" />
+    </AssociationSet>
+    <FunctionImport Name="sp_SaveItems">
+      <Parameter Name="BrandId" Mode="In" Type="Int32" />
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ItemName" Mode="In" Type="String" />
+      <Parameter Name="ItemDesc" Mode="In" Type="String" />
+      <Parameter Name="ItemImageURL" Mode="In" Type="String" />
+      <Parameter Name="ItemPrice" Mode="In" Type="Int32" />
+      <Parameter Name="ItemQuantity" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="ItemsId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SaveRegstration">
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Birthdate" Mode="In" Type="String" />
+      <Parameter Name="Hno" Mode="In" Type="String" />
+      <Parameter Name="Street" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Pincode" Mode="In" Type="String" />
+      <Parameter Name="ContactNo" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Loginname" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Squestionid" Mode="In" Type="String" />
+      <Parameter Name="Sanswer" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Carts" EntityType="Model.Cart" />
+    <FunctionImport Name="sp_Get_AllCart" ReturnType="Collection(Model.cGet_AllCart)">
+      <Parameter Name="LoginId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_AllOrders" ReturnType="Collection(Model.cGet_AllOrders)">
+      <Parameter Name="LoginID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SaveCart">
+      <Parameter Name="ItemOrder" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Price" Mode="In" Type="Int32" />
+      <Parameter Name="LoginId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Save_Orders">
+      <Parameter Name="OrderItemId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderQuantity" Mode="In" Type="Int32" />
+      <Parameter Name="LoginId" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="CcNumber" Mode="In" Type="String" />
+      <Parameter Name="CName" Mode="In" Type="String" />
+      <Parameter Name="Cvv" Mode="In" Type="Int32" />
+      <Parameter Name="Exp" Mode="In" Type="String" />
+      <Parameter Name="Street" Mode="In" Type="String" />
+      <Parameter Name="CityID" Mode="In" Type="String" />
+      <Parameter Name="StateID" Mode="In" Type="String" />
+      <Parameter Name="CountryID" Mode="In" Type="String" />
+      <Parameter Name="Zipcode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_Items" ReturnType="Collection(Model.cGet_Items)" />
+    <EntitySet Name="CraditCards" EntityType="Model.CraditCard" />
+    <FunctionImport Name="sp_Get_AllFeedback" ReturnType="Collection(Model.cGet_AllFeedback)">
+      <Parameter Name="LoginId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="BrandDesc" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Inventories" Relationship="Model.FK_Inventory_Brand" FromRole="Brand" ToRole="Inventory" />
+    <NavigationProperty Name="InventoryAudits" Relationship="Model.FK_InventoryAudit_Brand" FromRole="Brand" ToRole="InventoryAudit" />
+    <NavigationProperty Name="ItemOrders" Relationship="Model.FK_ItemOrder_Brand" FromRole="Brand" ToRole="ItemOrder" />
+    <Property Type="String" Name="BrandImgUrl" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryDesc" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Inventories" Relationship="Model.FK_Inventory_Category" FromRole="Category" ToRole="Inventory" />
+    <NavigationProperty Name="InventoryAudits" Relationship="Model.FK_InventoryAudit_Category" FromRole="Category" ToRole="InventoryAudit" />
+    <NavigationProperty Name="ItemOrders" Relationship="Model.FK_ItemOrder_Category" FromRole="Category" ToRole="ItemOrder" />
+    <Property Type="String" Name="CategoryImgUrl" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FeedbackDesc">
+    <Key>
+      <PropertyRef Name="Feedbackid" />
+    </Key>
+    <Property Name="Feedbackid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="Int32" />
+    <Property Name="Brandid" Type="Int32" />
+    <Property Name="Categoryid" Type="Int32" />
+    <Property Name="Itemid" Type="Int32" />
+    <Property Name="Feedbackdesc1" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Logindetail" Relationship="Model.FK_FeedbackDesc_Logindetails" FromRole="FeedbackDesc" ToRole="Logindetails" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="InventoryID" />
+    </Key>
+    <Property Name="InventoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Brand" Relationship="Model.FK_Inventory_Brand" FromRole="Inventory" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="Model.FK_Inventory_Category" FromRole="Inventory" ToRole="Category" />
+    <NavigationProperty Name="Item" Relationship="Model.FK_Inventory_Item" FromRole="Inventory" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="InventoryAudit">
+    <Key>
+      <PropertyRef Name="InventoryAuditID" />
+    </Key>
+    <Property Name="InventoryAuditID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="AuditType" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Brand" Relationship="Model.FK_InventoryAudit_Brand" FromRole="InventoryAudit" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="Model.FK_InventoryAudit_Category" FromRole="InventoryAudit" ToRole="Category" />
+    <NavigationProperty Name="Item" Relationship="Model.FK_InventoryAudit_Item" FromRole="InventoryAudit" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="ItemName" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="ItemDesc" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Inventories" Relationship="Model.FK_Inventory_Item" FromRole="Item" ToRole="Inventory" />
+    <NavigationProperty Name="InventoryAudits" Relationship="Model.FK_InventoryAudit_Item" FromRole="Item" ToRole="InventoryAudit" />
+    <NavigationProperty Name="ItemOrders" Relationship="Model.FK_ItemOrder_Item" FromRole="Item" ToRole="ItemOrder" />
+  </EntityType>
+  <EntityType Name="ItemOrder">
+    <Key>
+      <PropertyRef Name="ItemOrderID" />
+    </Key>
+    <Property Name="ItemOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="BrandID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Brand" Relationship="Model.FK_ItemOrder_Brand" FromRole="ItemOrder" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="Model.FK_ItemOrder_Category" FromRole="ItemOrder" ToRole="Category" />
+    <NavigationProperty Name="Item" Relationship="Model.FK_ItemOrder_Item" FromRole="ItemOrder" ToRole="Item" />
+    <NavigationProperty Name="TotalOrder" Relationship="Model.FK_ItemOrder_TotalOrders" FromRole="ItemOrder" ToRole="TotalOrders" />
+  </EntityType>
+  <EntityType Name="Loginaudit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Loginid" Type="Int32" />
+    <Property Name="Logindate" Type="DateTime" Precision="3" />
+    <Property Name="Logindesc" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Logindetail" Relationship="Model.FK_Loginaudit_Logindetails" FromRole="Loginaudit" ToRole="Logindetails" />
+  </EntityType>
+  <EntityType Name="Logindetail">
+    <Key>
+      <PropertyRef Name="Loginid" />
+    </Key>
+    <Property Name="Loginid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Loginname" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Firstname" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Lastname" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Logintype" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Squestionid" Type="Int32" />
+    <Property Name="Sanswer" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Firstlogin" Type="Int32" />
+    <Property Name="Passmodifieddate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="FeedbackDescs" Relationship="Model.FK_FeedbackDesc_Logindetails" FromRole="Logindetails" ToRole="FeedbackDesc" />
+    <NavigationProperty Name="Loginaudits" Relationship="Model.FK_Loginaudit_Logindetails" FromRole="Logindetails" ToRole="Loginaudit" />
+    <NavigationProperty Name="Loginprofiles" Relationship="Model.FK_Loginprofile_Logindetails" FromRole="Logindetails" ToRole="Loginprofile" />
+    <NavigationProperty Name="Queries" Relationship="Model.FK_Query_Logindetails1" FromRole="Logindetails" ToRole="Query" />
+    <NavigationProperty Name="Questionbases" Relationship="Model.FK_Questionbase_Logindetails" FromRole="Logindetails" ToRole="Questionbase" />
+  </EntityType>
+  <EntityType Name="Loginprofile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginId" Type="Int32" />
+    <Property Name="Birthdate" Type="DateTime" Precision="3" />
+    <Property Name="Hno" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Street" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Pincode" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="Locale" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Logindetail" Relationship="Model.FK_Loginprofile_Logindetails" FromRole="Loginprofile" ToRole="Logindetails" />
+  </EntityType>
+  <EntityType Name="Query">
+    <Key>
+      <PropertyRef Name="QueryID" />
+    </Key>
+    <Property Name="QueryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LogiID" Type="Int32" />
+    <Property Name="QueryDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Logindetail" Relationship="Model.FK_Query_Logindetails1" FromRole="Query" ToRole="Logindetails" />
+    <NavigationProperty Name="Solutions" Relationship="Model.FK_Solution_Query" FromRole="Query" ToRole="Solution" />
+  </EntityType>
+  <EntityType Name="Questionbase">
+    <Key>
+      <PropertyRef Name="Questionid" />
+    </Key>
+    <Property Name="Questionid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="Int32" />
+    <Property Name="Questiondetail" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Logindetail" Relationship="Model.FK_Questionbase_Logindetails" FromRole="Questionbase" ToRole="Logindetails" />
+  </EntityType>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="SolutionID" />
+    </Key>
+    <Property Name="SolutionID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="QueryId" Type="Int32" />
+    <Property Name="SolvedDate" Type="DateTime" Precision="3" />
+    <Property Name="Solution1" Type="String" MaxLength="225" Unicode="true" FixedLength="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Query" Relationship="Model.FK_Solution_Query" FromRole="Solution" ToRole="Query" />
+  </EntityType>
+  <EntityType Name="TotalOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="Int32" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalAmount" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="ItemOrders" Relationship="Model.FK_ItemOrder_TotalOrders" FromRole="TotalOrders" ToRole="ItemOrder" />
+    <Property Type="Int32" Name="ItemOrderId" />
+  </EntityType>
+  <Association Name="FK_Inventory_Brand">
+    <End Role="Brand" Type="Model.Brand" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Model.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryAudit_Brand">
+    <End Role="Brand" Type="Model.Brand" Multiplicity="0..1" />
+    <End Role="InventoryAudit" Type="Model.InventoryAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="InventoryAudit">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_Brand">
+    <End Role="Brand" Type="Model.Brand" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Category">
+    <End Role="Category" Type="Model.Category" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Model.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryAudit_Category">
+    <End Role="Category" Type="Model.Category" Multiplicity="0..1" />
+    <End Role="InventoryAudit" Type="Model.InventoryAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="InventoryAudit">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_Category">
+    <End Role="Category" Type="Model.Category" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbackDesc_Logindetails">
+    <End Role="Logindetails" Type="Model.Logindetail" Multiplicity="0..1" />
+    <End Role="FeedbackDesc" Type="Model.FeedbackDesc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="FeedbackDesc">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Item">
+    <End Role="Item" Type="Model.Item" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Model.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryAudit_Item">
+    <End Role="Item" Type="Model.Item" Multiplicity="0..1" />
+    <End Role="InventoryAudit" Type="Model.InventoryAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="InventoryAudit">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_Item">
+    <End Role="Item" Type="Model.Item" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOrder_TotalOrders">
+    <End Role="TotalOrders" Type="Model.TotalOrder" Multiplicity="0..1" />
+    <End Role="ItemOrder" Type="Model.ItemOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TotalOrders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="ItemOrder">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loginaudit_Logindetails">
+    <End Role="Logindetails" Type="Model.Logindetail" Multiplicity="0..1" />
+    <End Role="Loginaudit" Type="Model.Loginaudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Loginaudit">
+        <PropertyRef Name="Loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loginprofile_Logindetails">
+    <End Role="Logindetails" Type="Model.Logindetail" Multiplicity="0..1" />
+    <End Role="Loginprofile" Type="Model.Loginprofile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Loginprofile">
+        <PropertyRef Name="LoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Query_Logindetails1">
+    <End Role="Logindetails" Type="Model.Logindetail" Multiplicity="0..1" />
+    <End Role="Query" Type="Model.Query" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Query">
+        <PropertyRef Name="LogiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questionbase_Logindetails">
+    <End Role="Logindetails" Type="Model.Logindetail" Multiplicity="0..1" />
+    <End Role="Questionbase" Type="Model.Questionbase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logindetails">
+        <PropertyRef Name="Loginid" />
+      </Principal>
+      <Dependent Role="Questionbase">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solution_Query">
+    <End Role="Query" Type="Model.Query" Multiplicity="0..1" />
+    <End Role="Solution" Type="Model.Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Query">
+        <PropertyRef Name="QueryID" />
+      </Principal>
+      <Dependent Role="Solution">
+        <PropertyRef Name="QueryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Type="Int32" Name="CartId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ItemOrderId" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="Int32" Name="Price" />
+    <Property Type="Int32" Name="CreatedBy" />
+    <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <ComplexType Name="cGet_AllCart">
+    <Property Type="String" Name="ItemName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="BrandName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="225" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+    <Property Type="Int32" Name="ItemID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="cGet_AllOrders">
+    <Property Type="Int32" Name="Price" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="BrandName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="ItemName" Nullable="true" MaxLength="225" />
+    <Property Type="Int32" Name="BrandID" Nullable="true" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="Int32" Name="ItemID" Nullable="true" />
+    <Property Type="Int32" Name="ItemOrderID" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="cGet_Items">
+    <Property Type="Int32" Name="ItemID" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="ItemName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="ItemDesc" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="ImageURL" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="CategoryDesc" Nullable="true" MaxLength="225" />
+    <Property Type="Int32" Name="BrandID" Nullable="true" />
+    <Property Type="String" Name="BrandName" Nullable="true" MaxLength="225" />
+    <Property Type="Int32" Name="InventoryID" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CraditCard">
+    <Key>
+      <PropertyRef Name="CraditCardsID" />
+    </Key>
+    <Property Type="Int32" Name="CraditCardsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="LoginID" />
+    <Property Type="Int32" Name="OrderID" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CcNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Cvv" />
+    <Property Type="String" Name="Exp" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Street" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StateID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CountryID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Zipcode" />
+    <Property Type="String" Name="CreatedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <ComplexType Name="cGet_AllFeedback">
+    <Property Type="String" Name="LoginName" Nullable="true" MaxLength="451" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="BrandName" Nullable="true" MaxLength="225" />
+    <Property Type="String" Name="Feedbackdesc" Nullable="true" MaxLength="225" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>
